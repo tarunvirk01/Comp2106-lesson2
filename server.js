@@ -69,5 +69,6 @@ app.use('/', index);
 // app.use(notFound);
 
 // start hte connect http server
-app.listen(4000);
-console.log('Connect server running on port 4000');
+let port = process.env.PORT || 3000;
+app.listen(3000);
+console.log('Connect server running on port 3000');

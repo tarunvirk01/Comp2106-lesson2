@@ -56,19 +56,19 @@ let api = function(req, res, next) {
   });
 
   //set response type to JSON
+  res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(person);
+ };
 
-  res.end(person);
-};
+ // map the url's to the correct virtual pages
+ app.use('/hello', hello);
+ app.use('/goodbye', goodbye);
+ app.use('/api', api);
+ app.use('/tax', tax);
+ app.use('/', index);
+ // app.use(notFound);
 
-// map the url's to the correct virtual pages
-app.use('/hello', hello);
-app.use('/goodbye', goodbye);
-app.use('/api', api);
-app.use('/tax', tax);
-app.use('/', index);
-// app.use(notFound);
-
-// start hte connect http server
-let port = process.env.PORT || 3000;
-app.listen(3000);
-console.log('Connect server running on port 3000');
+ // start the connect http server
+ let port = process.env.PORT || 3000;
+ app.listen(port);
+ console.log('Connect server running on port 3000');
